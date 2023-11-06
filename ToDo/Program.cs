@@ -1,5 +1,7 @@
 using System.Data;
 using System.Data.SQLite;
+using ToDo.interfaces;
+using ToDo.repositories;
 using ToDoApp.Interfaces;
 using ToDoApp.Repositories;
 
@@ -8,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddScoped<IDbConnection>((sp)=> new SQLiteConnection(connectionString));
-builder.Services.AddScoped<IUsuarioRepository,UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<ITableroRepository, TableroRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
