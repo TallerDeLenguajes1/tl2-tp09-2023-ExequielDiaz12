@@ -16,7 +16,6 @@ namespace ToDoApp.Repositories
         {
             _dbConnection = dbConnection;
         }
-
         public IEnumerable<Usuario> GetAllUsuarios()
         {
             using (var connection = _dbConnection)
@@ -41,7 +40,6 @@ namespace ToDoApp.Repositories
                 }
             }
         }
-
         public Usuario GetUsuario(int id)
         {
             using(var connection = _dbConnection)
@@ -65,7 +63,6 @@ namespace ToDoApp.Repositories
                 }
             }
         }
-
         public bool UpdateUsuario(int id, Usuario usuario)
         {
             using(var connection = _dbConnection)
@@ -81,7 +78,6 @@ namespace ToDoApp.Repositories
                 }
             }
         }
-    
         public void CreateUsuario(Usuario usuario)
         {
             using(var connection = _dbConnection)
@@ -95,7 +91,6 @@ namespace ToDoApp.Repositories
                 }
             }
         }
-
         public bool DeleteUsuario(int id)
         {
             using(var connection = _dbConnection)

@@ -31,7 +31,6 @@ namespace ToDo.repositories
                 }
             }
         }
-
         public bool DeleteTablero(int id)
         {
             using(var connection = _dbConnection)
@@ -46,7 +45,6 @@ namespace ToDo.repositories
                 }
             }
         }
-
         public IEnumerable<Tablero> GetAllTableros()
         {
             using(var connection = _dbConnection)
@@ -71,7 +69,6 @@ namespace ToDo.repositories
                 }
             }
         }
-
         public Tablero GetTablero(int id)
         {
             using(var connection = _dbConnection)
@@ -98,7 +95,6 @@ namespace ToDo.repositories
                 }
             }
         }
-
         public bool UpdateTablero(int id, Tablero tablero)
         {
             using(var connection = _dbConnection)
