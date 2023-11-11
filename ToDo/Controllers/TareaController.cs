@@ -61,13 +61,12 @@ namespace ToDo.Controllers
             }
         }
 
-        [HttpPut("{id/estado}")]
-        public IActionResult PUT(int id,int estado,[FromBody]Tarea tarea)
+        [HttpPut("{id}/cambio")]
+        public IActionResult PUT(int id,int estado)
         {
             try{
-                var tareaModificar = _tareaRepository.GetTareaById(id);
-                tareaModificar.Estado = estado;
-                if(_tareaRepository.UpdateTarea(id,tareaModificar)){
+                
+                if(_tareaRepository.UpdateTarea(id,tarea)){
                     return NoContent();
                 }else{
                     return NotFound();
@@ -91,7 +90,7 @@ namespace ToDo.Controllers
             }
         }
 
-        [HttpGet("{estado}")]
+        [HttpGet("{estado}/GET2")]
         public IActionResult GET2(int estado)//cantidad de tareas en un estado
         {
             try{
@@ -105,7 +104,7 @@ namespace ToDo.Controllers
             }
         }
 
-        [HttpGet("{idUsuario}")]
+        [HttpGet("{idUsuario}/GET3")]
         public IActionResult GET3(int idUsuario)//listar tareas asignadas a un usuario
         {
             try{
@@ -119,7 +118,7 @@ namespace ToDo.Controllers
             }
         }
 
-        [HttpGet("{idTablero}")]     
+        [HttpGet("{idTablero}/GET4")]     
         public IActionResult GET4(int idTablero)
         {
             try{
