@@ -61,17 +61,21 @@ namespace ToDo.Controllers
             }
         }
 
-        [HttpPut("{id}/cambio")]
-        public IActionResult PUT(int id,int estado)
+        [HttpPut("{id}/CambiarEstado")]
+        public IActionResult CambiarEstado(int id,int estado)
         {
-            try{
-                
+            try
+            {
+                var tarea = _tareaRepository.GetTareaById(id);
+                tarea.Estado = estado;
                 if(_tareaRepository.UpdateTarea(id,tarea)){
                     return NoContent();
                 }else{
                     return NotFound();
                 }
-            }catch{
+            }
+            catch 
+            {
                 return StatusCode(500);
             }
         }
@@ -122,11 +126,11 @@ namespace ToDo.Controllers
         public IActionResult GET4(int idTablero)
         {
             try{
-                var tareas = _tareaRepository.GetTareasByTablero(idTablero);
+                var tareas = _tareaRepository.GetTareas().ToList();
                 if(tareas==null){
                     return NotFound();
                 }
-                return Ok(tareas);
+                return Ok(tareas.Where(t =>t.IdTablero == idTablero));
             }catch{
                 return StatusCode(500);
             }

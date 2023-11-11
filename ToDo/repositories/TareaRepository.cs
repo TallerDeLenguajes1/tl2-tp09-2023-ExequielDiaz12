@@ -151,7 +151,7 @@ namespace ToDo.repositories
                 var query = "update Tarea set IdTablero = @IdTablero, Nombre = @Nombre, Estado = @Estado, Descripcion = @Descripcion, Color = @Color, IdUsuarioAsignado = @IdUsuarioAsignado where Id = @Id";
                 using(var command = new SQLiteCommand(query,(SQLiteConnection)connection))
                 {
-                    command.Parameters.Add(new SQLiteParameter("@Id", id));
+                    command.Parameters.Add(new SQLiteParameter("@Id", tarea.Id));
                     command.Parameters.Add(new SQLiteParameter("@IdTablero", tarea.IdTablero));
                     command.Parameters.Add(new SQLiteParameter("@Nombre", tarea.Nombre));
                     command.Parameters.Add(new SQLiteParameter("@Estado", tarea.Estado));
